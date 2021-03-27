@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    {% if is_new %}
+        <h2 style="margin-left: 30px;">Сотрудники(измененная зарплата):</h2>
+    {% else %}
+        <h2 style="margin-left: 30px;">Сотрудники(старая зарплата):</h2>
+    {% endif %}
+    <p style="margin-left: 100px;">
+        <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Имя</th>
+            <th>Зарплата</th>
+            <th>Количество дней</th>
+            <th>Дней пропущено</th>
+            <th>Данные добавлены</th>
+            <th>Данные обновлены</th>
+
+        </tr>
+            {% for employee in employees %}
+                <tr><td>{{ employee.id }}</td><td>{{ employee.name }}</td><td>{{ employee.salary }}</td><td>{{ employee.days }}</td><td>{{ employee.days_skipped }}</td><td>{{ employee.added_time }}</td><td>{{ employee.added_time }}</td></tr>
+            {% endfor %}
+        </table>
+    </p>
+</body>
+</html>
